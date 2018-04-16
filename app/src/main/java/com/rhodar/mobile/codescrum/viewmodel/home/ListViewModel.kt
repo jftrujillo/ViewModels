@@ -6,6 +6,7 @@ import android.arch.lifecycle.ViewModel
 import com.rhodar.mobile.codescrum.viewmodel.data.model.Repo
 import com.rhodar.mobile.codescrum.viewmodel.data.networking.RepoApi
 import io.reactivex.Observable
+import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 
@@ -33,6 +34,7 @@ class ListViewModel : ViewModel() {
         repoCall = RepoApi.getInstance().getRepositories()
         dis.add(repoCall!!
                 .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
                     loadError.value = false
                     repos.value = it

@@ -8,6 +8,10 @@ apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 27
+    dataBinding {
+        enabled true
+    }
+
     defaultConfig {
         applicationId "com.rhodar.mobile.codescrum.viewmodel"
         minSdkVersion 19
@@ -23,6 +27,8 @@ android {
         }
     }
 }
+
+
 
 kapt {
     generateStubs = true
@@ -43,7 +49,6 @@ dependencies {
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
     implementation 'com.android.support:appcompat-v7:27.1.1'
     implementation "com.android.support:recyclerview-v7:27.1.1"
-    kapt 'com.android.databinding:compiler:3.1.1'
     implementation "android.arch.lifecycle:extensions:1.1.1"
     kapt "android.arch.lifecycle:compiler:1.1.1"
     annotationProcessor "android.arch.lifecycle:compiler:1.1.1"
@@ -73,7 +78,7 @@ dependencies {
     implementation "com.squareup.okhttp3:logging-interceptor:$okhttp_version"
 
     implementation "com.jakewharton.timber:timber:4.6.0"
-    compile 'com.jakewharton:butterknife:8.8.1'
+    implementation 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     kapt "com.jakewharton:butterknife:8.8.1"
 

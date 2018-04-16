@@ -11,6 +11,7 @@ class RepoApi {
         private var repoService: RepoService? = null
         private fun initializeRetrofit() {
             retrofit = Retrofit.Builder()
+                    .baseUrl(BASE_URL)
                     .addConverterFactory(MoshiConverterFactory.create())
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .build()

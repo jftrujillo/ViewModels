@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">ViewModel</string>
+    <string name="api_error_message">There was an error on Api response</string>
 </resources>
